@@ -531,7 +531,7 @@ export default function HomePage() {
               <Link href="/register" className="btn-primary" style={{ fontSize: "1rem", padding: "16px 36px" }}>
                 Register Now <ArrowRight size={18} />
               </Link>
-              <Link href="/contact" className="btn-secondary" style={{ fontSize: "1rem", padding: "16px 36px" }}>
+              <Link href="tel:+919810152798" className="btn-secondary" style={{ fontSize: "1rem", padding: "16px 36px" }}>
                 Contact Us
               </Link>
             </div>
