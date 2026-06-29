@@ -304,3 +304,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 120px 0 60px;
   }
 }
+
+@media (max-width: 393px) {
+  .hero-tagline {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    gap: 4px !important;
+  }
+}
