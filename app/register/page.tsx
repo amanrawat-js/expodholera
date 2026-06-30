@@ -54,6 +54,7 @@ interface RegistrationForm {
 
 export default function RegisterPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const {
     register,
@@ -62,9 +63,24 @@ export default function RegisterPage() {
     formState: { errors, isSubmitting },
   } = useForm<RegistrationForm>();
 
-  const onSubmit = async () => {
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitted(true);
+  const onSubmit = async (data: RegistrationForm) => {
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || "Submission failed. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Something went wrong."
+      );
+    }
   };
 
   return (
@@ -290,7 +306,16 @@ export default function RegisterPage() {
                         id="reg-name"
                         className="form-input"
                         placeholder="Your full name"
-                        {...register("name", { required: "Name is required", minLength: { value: 2, message: "Min 2 characters" } })}
+                        {...register("name", {
+                          required: "Full name is required.",
+                          minLength: { value: 2, message: "Name must be at least 2 characters." },
+                          maxLength: { value: 60, message: "Name cannot exceed 60 characters." },
+                          pattern: {
+                            value: /^[A-Za-z][A-Za-z\s.'-]{1,59}$/,
+                            message: "Name may only contain letters, spaces, hyphens, apostrophes, or dots.",
+                          },
+                          setValueAs: (v: string) => v.trim(),
+                        })}
                       />
                       {errors.name && <p className="form-error">{errors.name.message}</p>}
                     </div>
@@ -301,7 +326,14 @@ export default function RegisterPage() {
                         type="email"
                         className="form-input"
                         placeholder="you@example.com"
-                        {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" } })}
+                        {...register("email", {
+                          required: "Email address is required.",
+                          pattern: {
+                            value: /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/,
+                            message: "Please enter a valid email address (e.g. name@domain.com).",
+                          },
+                          setValueAs: (v: string) => v.trim().toLowerCase(),
+                        })}
                       />
                       {errors.email && <p className="form-error">{errors.email.message}</p>}
                     </div>
@@ -322,8 +354,15 @@ export default function RegisterPage() {
                         id="reg-phone"
                         type="tel"
                         className="form-input"
-                        placeholder="+91 XXXXX XXXXX"
-                        {...register("phone", { required: "Phone is required", minLength: { value: 10, message: "Min 10 digits" } })}
+                        placeholder="+91 98765 43210"
+                        {...register("phone", {
+                          required: "Phone number is required.",
+                          pattern: {
+                            value: /^(?:\+91|91|0)?[6-9]\d{9}$/,
+                            message: "Enter a valid 10-digit Indian mobile number (6–9 prefix).",
+                          },
+                          setValueAs: (v: string) => v.replace(/[\s\-()]/g, ""),
+                        })}
                       />
                       {errors.phone && <p className="form-error">{errors.phone.message}</p>}
                     </div>
@@ -386,6 +425,23 @@ export default function RegisterPage() {
                       </>
                     )}
                   </button>
+
+                  {submitError && (
+                    <p
+                      style={{
+                        textAlign: "center",
+                        marginTop: 12,
+                        fontFamily: "var(--font-body)",
+                        fontSize: "0.875rem",
+                        color: "#c0392b",
+                        background: "rgba(192,57,43,0.07)",
+                        borderRadius: 8,
+                        padding: "10px 16px",
+                      }}
+                    >
+                      {submitError}
+                    </p>
+                  )}
 
                   <p
                     style={{
