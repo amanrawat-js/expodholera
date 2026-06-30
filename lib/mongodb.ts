@@ -4,15 +4,10 @@ const MONGODB_URI = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URI) {
   throw new Error(
-    "Please define the MONGODB_URI environment variable in .env.local"
+    "Please define the MONGODB_URI environment variable."
   );
 }
 
-/**
- * Global cache to prevent multiple connections in development (hot reload).
- * In production, each serverless invocation gets a fresh module scope,
- * but we still cache within the invocation.
- */
 declare global {
   // eslint-disable-next-line no-var
   var _mongooseCache: {
@@ -21,7 +16,11 @@ declare global {
   };
 }
 
-const cache = global._mongooseCache ?? { conn: null, promise: null };
+const cache = global._mongooseCache ?? {
+  conn: null,
+  promise: null,
+};
+
 global._mongooseCache = cache;
 
 export async function connectDB(): Promise<typeof mongoose> {
@@ -30,9 +29,45 @@ export async function connectDB(): Promise<typeof mongoose> {
   }
 
   if (!cache.promise) {
-    cache.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false,
-    });
+    console.log("🔄 Connecting to MongoDB...");
+    console.log(
+      "Mongo URI:",
+      MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, "//****:****@")
+    );
+
+    cache.promise = mongoose
+      .connect(MONGODB_URI, {
+        bufferCommands: false,
+        serverSelectionTimeoutMS: 10000,
+        connectTimeoutMS: 10000,
+      })
+      .then((mongooseInstance) => {
+        console.log("✅ MongoDB Connected Successfully");
+        return mongooseInstance;
+      })
+      .catch((err: any) => {
+        console.error("\n========== MONGODB CONNECTION ERROR ==========");
+        console.error("Name:", err.name);
+        console.error("Message:", err.message);
+
+        if (err.reason) {
+          console.error("\nReason:");
+          console.dir(err.reason, { depth: null });
+        }
+
+        if (err.cause) {
+          console.error("\nCause:");
+          console.dir(err.cause, { depth: null });
+        }
+
+        console.error("\nComplete Error:");
+        console.dir(err, { depth: null });
+
+        console.error("=============================================\n");
+
+        cache.promise = null;
+        throw err;
+      });
   }
 
   cache.conn = await cache.promise;
