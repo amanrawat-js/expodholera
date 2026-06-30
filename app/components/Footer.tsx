@@ -124,7 +124,10 @@ export default function Footer() {
                 info@expodholera.com
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.6)", margin: 0 }}>
-                +91 98101 52798
+                9560986669, 7303789661
+              </p>
+              <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.6)", margin: 0 }}>
+                
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.6)", margin: 0 }}>
                 2319, Wave One, Noida 201301, Uttar Pradesh
