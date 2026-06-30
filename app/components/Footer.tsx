@@ -132,7 +132,7 @@ export default function Footer() {
             </div>
 
             {/* Social icons placeholder */}
-            <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
+            {/* <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
               {["LinkedIn", "Instagram", "YouTube", "X"].map((name) => (
                 <a
                   key={name}
@@ -165,7 +165,7 @@ export default function Footer() {
                   {name[0]}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -184,7 +184,7 @@ export default function Footer() {
             © 2026 Expodholera. All rights reserved.
           </p>
           <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.4)", margin: 0 }}>
-            Dholera Property Expo India 2026 — From Vision to Value
+            Dholera Property Expo India 2026 - From Vision to Value
           </p>
         </div>
       </div>

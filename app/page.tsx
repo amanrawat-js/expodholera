@@ -293,8 +293,8 @@ export default function HomePage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: 60,
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+              gap: 44,
               alignItems: "center",
             }}
           >
@@ -311,7 +311,7 @@ export default function HomePage() {
                 Our Vision
               </h2>
               <p className="body-text" style={{ fontSize: "1.0625rem", marginBottom: 24 }}>
-                To make Dholera a nationally recognised investment destination by taking the opportunity directly to the people - rather than waiting for people to discover it themselves.
+                Hear from our Founder, Mr. Sanjayy Bhardwajj, as he shares the vision behind this mission.
               </p>
               <div
                 style={{
@@ -331,17 +331,35 @@ export default function HomePage() {
                     lineHeight: 1.8,
                   }}
                 >
-                  &ldquo;Our vision is not just to organize a property exhibition. We aim to create a dedicated investment platform that brings together developers, investors, and associate partners, helping them explore opportunities in Dholera while building trust, generating business, and contributing to the growth of one of India&apos;s most ambitious smart city projects.&rdquo;
+                  &ldquo;Our vision goes beyond organizing a property exhibition. We aim to build a trusted investment platform that brings together developers, investors, and associate partners to explore opportunities in Dholera, build lasting relationships, and contribute to the growth of India's most ambitious smart city project.&rdquo;
                 </p>
               </div>
             </AnimatedSection>
             <AnimatedSection direction="right" delay={0.15}>
-              <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", aspectRatio: "4/3" }}>
-                <Image
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                  alt="Smart city infrastructure"
-                  fill
-                  style={{ objectFit: "cover" }}
+              <div
+                style={{
+                  position: "relative",
+                  top: "30px",
+                  width: "100%",
+                  aspectRatio: "16 / 9",
+                  borderRadius: 6,
+                  overflow: "hidden",
+                }}
+              >
+                <iframe
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                  }}
+                  src="https://www.youtube.com/embed/T2-A5VVIfpA?si=wgZq1l5kra2efvJR"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
                 />
               </div>
             </AnimatedSection>
