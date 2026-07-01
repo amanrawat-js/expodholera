@@ -4,7 +4,7 @@ export interface IRegistration {
   name: string;
   email: string;
   phone: string;
-  city: string;
+  // city: string;
   type: string;
   company?: string;
   message?: string;
@@ -32,11 +32,11 @@ const RegistrationSchema = new Schema<IRegistration>(
       trim: true,
       minlength: [10, "Phone must be at least 10 digits"],
     },
-    city: {
-      type: String,
-      required: [true, "City selection is required"],
-      trim: true,
-    },
+    // city: {
+    //   type: String,
+    //   required: [true, "City selection is required"],
+    //   trim: true,
+    // },
     type: {
       type: String,
       required: [true, "Registration type is required"],

@@ -5,10 +5,10 @@ import Registration from "@/models/Registration";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, city, type, company, message } = body;
+    const { name, email, phone, /* city, */ type, company, message } = body;
 
     // Basic server-side validation
-    if (!name || !email || !phone || !city || !type) {
+    if (!name || !email || !phone || !type) {
       return NextResponse.json(
         { success: false, error: "Missing required fields." },
         { status: 400 }
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       name,
       email,
       phone,
-      city,
+      // city,
       type,
       company: company || "",
       message: message || "",

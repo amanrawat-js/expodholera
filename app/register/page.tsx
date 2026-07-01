@@ -25,15 +25,15 @@ const registrationTypes = [
   { value: "media", label: "Media / Press", icon: <Newspaper size={20} /> },
 ];
 
-const cities = [
-  "Jaipur — 12–13 Sep 2026",
-  "Guwahati — 26–27 Sep 2026",
-  "Indore — 10–11 Oct 2026",
-  "Nagpur — 24–25 Oct 2026",
-  "Pune — 14–15 Nov 2026",
-  "Patna — 28–29 Nov 2026",
-  "All Cities",
-];
+// const cities = [
+//   "Jaipur — 12–13 Sep 2026",
+//   "Guwahati — 26–27 Sep 2026",
+//   "Indore — 10–11 Oct 2026",
+//   "Nagpur — 24–25 Oct 2026",
+//   "Pune — 14–15 Nov 2026",
+//   "Patna — 28–29 Nov 2026",
+//   "All Cities",
+// ];
 
 const benefits = [
   { icon: <Users size={20} />, title: "Direct Access", desc: "Meet verified developers and industry experts face-to-face" },
@@ -46,7 +46,7 @@ interface RegistrationForm {
   name: string;
   email: string;
   phone: string;
-  city: string;
+  // city: string;
   type: string;
   company: string;
   message: string;
@@ -197,6 +197,7 @@ export default function RegisterPage() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  style={{ display: "flex", justifyContent: "center" }}
                 >
                   <CheckCircle size={64} style={{ color: "var(--gold)", marginBottom: 24 }} />
                 </motion.div>
@@ -339,7 +340,7 @@ export default function RegisterPage() {
                     </div>
                   </div>
 
-                  {/* Phone & City */}
+                  {/* Phone & Company */}
                   <div
                     style={{
                       display: "grid",
@@ -367,32 +368,32 @@ export default function RegisterPage() {
                       {errors.phone && <p className="form-error">{errors.phone.message}</p>}
                     </div>
                     <div>
-                      <label className="form-label" htmlFor="reg-city">Preferred City *</label>
-                      <select
-                        id="reg-city"
+                      <label className="form-label" htmlFor="reg-company">Company / Organisation (optional)</label>
+                      <input
+                        id="reg-company"
                         className="form-input"
-                        {...register("city", { required: "Please select a city" })}
-                        defaultValue=""
-                      >
-                        <option value="" disabled>Select a city</option>
-                        {cities.map((c) => (
-                          <option key={c} value={c}>{c}</option>
-                        ))}
-                      </select>
-                      {errors.city && <p className="form-error">{errors.city.message}</p>}
+                        placeholder="Your company name"
+                        {...register("company")}
+                      />
                     </div>
                   </div>
 
-                  {/* Company */}
-                  <div style={{ marginBottom: 20 }}>
-                    <label className="form-label" htmlFor="reg-company">Company / Organisation (optional)</label>
-                    <input
-                      id="reg-company"
+                  {/* Preferred City — commented out */}
+                  {/* <div style={{ marginBottom: 20 }}>
+                    <label className="form-label" htmlFor="reg-city">Preferred City *</label>
+                    <select
+                      id="reg-city"
                       className="form-input"
-                      placeholder="Your company name"
-                      {...register("company")}
-                    />
-                  </div>
+                      {...register("city", { required: "Please select a city" })}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select a city</option>
+                      {cities.map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                    {errors.city && <p className="form-error">{errors.city.message}</p>}
+                  </div> */}
 
                   {/* Message */}
                   <div style={{ marginBottom: 28 }}>
