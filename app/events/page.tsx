@@ -177,6 +177,472 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
+        {/* LAUNCH CEREMONY SECTION */}
+            <section
+              style={{
+                background: "linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1a3560 100%)",
+                padding: "80px 0",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              {/* Decorative background orbs */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: "-120px",
+                  right: "-120px",
+                  width: 480,
+                  height: 480,
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(200,145,58,0.12) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }}
+              />
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  bottom: "-80px",
+                  left: "-80px",
+                  width: 360,
+                  height: 360,
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(200,145,58,0.08) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Subtle grid pattern overlay */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                  backgroundSize: "60px 60px",
+                  pointerEvents: "none",
+                }}
+              />
+      
+              <div className="container-main" style={{ position: "relative", zIndex: 1 }}>
+      
+                {/* Header */}
+                <AnimatedSection>
+                  <div style={{ textAlign: "center", marginBottom: 44 }}>
+                    {/* Badge */}
+      
+                    <h2
+                      className="heading-display"
+                      style={{
+                        fontSize: "clamp(1.75rem, 4vw, 3rem)",
+                        color: "var(--white)",
+                        marginBottom: 24,
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      Launch Ceremony &amp; Press Conference
+                    </h2>
+      
+                    {/* Date pill */}
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 10,
+                        background: "var(--gold)",
+                        borderRadius: 8,
+                        padding: "8px 20px",
+                        marginBottom: 24,
+                      }}
+                    >
+                      <span style={{ fontSize: "1.25rem" }}>📍</span>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-heading)",
+                          fontSize: "0.9375rem",
+                          fontWeight: 700,
+                          color: "var(--navy-dark)",
+                          letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Ahmedabad · 18th July 2026
+                      </span>
+                    </div>
+      
+                    <p
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "1.0625rem",
+                        color: "rgba(255,255,255,0.55)",
+                        fontStyle: "italic",
+                        marginBottom: 20,
+                        maxWidth: 620,
+                        margin: "0 auto 10px",
+                      }}
+                    >
+                      India&apos;s first dedicated Dholera Property Expo roadshow to be launched across major cities.
+                    </p>
+                  </div>
+                </AnimatedSection>
+      
+                {/* Main content grid */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+                    gap: 30,
+                    alignItems: "start",
+                  }}
+                >
+                  {/* Left — About the event */}
+                  <AnimatedSection direction="left" delay={0.1}>
+                    <div
+                      style={{
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        borderRadius: 20,
+                        padding: "26px 36px",
+                        backdropFilter: "blur(12px)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 12,
+                          marginBottom: 18,
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: 10,
+                            background: "rgba(200,145,58,0.2)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "1.25rem",
+                            flexShrink: 0,
+                          }}
+                        >
+                          🏛️
+                        </div>
+                        <h3
+                          className="heading-display"
+                          style={{
+                            fontSize: "1.25rem",
+                            color: "var(--white)",
+                            margin: 0,
+                          }}
+                        >
+                          About the Event
+                        </h3>
+                      </div>
+      
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "0.9375rem",
+                          color: "rgba(255,255,255,0.72)",
+                          lineHeight: 1.85,
+                          margin: 0,
+                        }}
+                      >
+                        The Dholera Investment Expo Series will commence with an exclusive Launch Ceremony and Press Conference in Ahmedabad, bringing together government representatives, industry leaders, developers, investors, channel partners, media houses, and strategic stakeholders.
+                      </p>
+      
+                      {/* Divider */}
+                      <div
+                        style={{
+                          height: 1,
+                          background: "rgba(255,255,255,0.08)",
+                          margin: "20px 0",
+                        }}
+                      />
+      
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "0.9375rem",
+                          color: "rgba(255,255,255,0.72)",
+                          lineHeight: 1.85,
+                          margin: 0,
+                        }}
+                      >
+                        The objective of this launch event is to officially unveil the 6-city Dholera Investment Expo roadmap, create awareness about investment opportunities in Dholera, and establish a strong platform for industry collaboration and investor engagement.
+                      </p>
+      
+                      {/* Objectives */}
+                      <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 14 }}>
+                        {[
+                          "Unveil the 06-city Expo roadmap",
+                          "Create nationwide investment awareness",
+                          "Foster industry collaboration",
+                          "Drive investor engagement at scale",
+                        ].map((item) => (
+                          <div
+                            key={item}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 12,
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: 20,
+                                height: 20,
+                                borderRadius: "50%",
+                                background: "rgba(200,145,58,0.2)",
+                                border: "1px solid rgba(200,145,58,0.5)",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                                <path d="M1 4L3.5 6.5L9 1" stroke="#C8913A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </div>
+                            <span
+                              style={{
+                                fontFamily: "var(--font-body)",
+                                fontSize: "0.875rem",
+                                color: "rgba(255,255,255,0.8)",
+                              }}
+                            >
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </AnimatedSection>
+      
+                  {/* Right — Key Invitees */}
+                  <AnimatedSection direction="right" delay={0.2}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      
+                      {/* Business Media */}
+                      <div
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 16,
+                          padding: "28px 28px",
+                          backdropFilter: "blur(12px)",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+                          <span style={{ fontSize: "1.1rem" }}>📺</span>
+                          <h3
+                            style={{
+                              fontFamily: "var(--font-heading)",
+                              fontSize: "0.9375rem",
+                              fontWeight: 600,
+                              color: "var(--gold-light)",
+                              margin: 0,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            Business Media
+                          </h3>
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                          {["CNBC Gujarati", "Zee 24 Kalak", "TV9 Gujarati", "ABP Asmita", "Sandesh", "Divya Bhaskar", "Gujarat Samachar"].map(
+                            (name) => (
+                              <span
+                                key={name}
+                                style={{
+                                  fontFamily: "var(--font-body)",
+                                  fontSize: "0.8125rem",
+                                  fontWeight: 500,
+                                  color: "rgba(255,255,255,0.85)",
+                                  background: "rgba(255,255,255,0.07)",
+                                  border: "1px solid rgba(255,255,255,0.12)",
+                                  borderRadius: 100,
+                                  padding: "5px 14px",
+                                }}
+                              >
+                                {name}
+                              </span>
+                            )
+                          )}
+                        </div>
+                      </div>
+      
+                      {/* Digital Creators */}
+                      <div
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 16,
+                          padding: "28px 28px",
+                          backdropFilter: "blur(12px)",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+                          <span style={{ fontSize: "1.1rem" }}>🎥</span>
+                          <h3
+                            style={{
+                              fontFamily: "var(--font-heading)",
+                              fontSize: "0.9375rem",
+                              fontWeight: 600,
+                              color: "var(--gold-light)",
+                              margin: 0,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            Digital Creators
+                          </h3>
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                          {["Real Estate YouTubers", "Gujarati Business Influencers", "Investment Bloggers"].map((name) => (
+                            <span
+                              key={name}
+                              style={{
+                                fontFamily: "var(--font-body)",
+                                fontSize: "0.8125rem",
+                                fontWeight: 500,
+                                color: "rgba(255,255,255,0.85)",
+                                background: "rgba(255,255,255,0.07)",
+                                border: "1px solid rgba(255,255,255,0.12)",
+                                borderRadius: 100,
+                                padding: "5px 14px",
+                              }}
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+      
+                      {/* Industry Guests */}
+                      <div
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 16,
+                          padding: "28px 28px",
+                          backdropFilter: "blur(12px)",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+                          <span style={{ fontSize: "1.1rem" }}>🏗️</span>
+                          <h3
+                            style={{
+                              fontFamily: "var(--font-heading)",
+                              fontSize: "0.9375rem",
+                              fontWeight: 600,
+                              color: "var(--gold-light)",
+                              margin: 0,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            Industry Guests
+                          </h3>
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                          {["Dholera Developers", "Architects", "Urban Planners", "Property Consultants"].map((name) => (
+                            <span
+                              key={name}
+                              style={{
+                                fontFamily: "var(--font-body)",
+                                fontSize: "0.8125rem",
+                                fontWeight: 500,
+                                color: "rgba(255,255,255,0.85)",
+                                background: "rgba(255,255,255,0.07)",
+                                border: "1px solid rgba(255,255,255,0.12)",
+                                borderRadius: 100,
+                                padding: "5px 14px",
+                              }}
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+      
+                    </div>
+                  </AnimatedSection>
+                </div>
+      
+                {/* Bottom CTA strip */}
+                <AnimatedSection delay={0.3}>
+                  <div
+                    style={{
+                      marginTop: 56,
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: 16,
+                      padding: "32px 40px",
+                      display: "flex",
+                      backdropFilter: "blur(12px)",
+                      flexWrap: "wrap",
+                      gap: 24,
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-heading)",
+                          fontSize: "1.125rem",
+                          fontWeight: 600,
+                          color: "var(--white)",
+                          margin: "0 0 4px",
+                        }}
+                      >
+                        Want to attend the Launch Ceremony?
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "0.9rem",
+                          color: "rgba(255,255,255,0.55)",
+                          margin: 0,
+                        }}
+                      >
+                        Register above and select your preferred city. Our team will reach out with an exclusive invite.
+                      </p>
+                    </div>
+                    <a
+                      href="/register"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        background: "var(--gold)",
+                        color: "var(--navy-dark)",
+                        fontFamily: "var(--font-body)",
+                        fontSize: "0.9375rem",
+                        fontWeight: 700,
+                        padding: "13px 28px",
+                        borderRadius: 10,
+                        textDecoration: "none",
+                        whiteSpace: "nowrap",
+                        transition: "background 0.2s ease",
+                        flexShrink: 0,
+                      }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--gold-light)"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--gold)"; }}
+                    >
+                      Register Now ↑
+                    </a>
+                  </div>
+                </AnimatedSection>
+      
+              </div>
+            </section>
 
       {/* PHASE 2 */}
       <section className="section" style={{ background: "var(--off-white)" }}>

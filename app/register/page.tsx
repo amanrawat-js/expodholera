@@ -102,7 +102,7 @@ export default function RegisterPage() {
                 marginBottom: 16,
               }}
             >
-              Register for the Expo
+              Register for the Launch Ceremony
             </h1>
             <p
               style={{
@@ -114,7 +114,7 @@ export default function RegisterPage() {
                 lineHeight: 1.7,
               }}
             >
-              Secure your spot at India&apos;s first dedicated Dholera Property Expo.
+              Secure your spot for launch ceremony at Ahmedabad - 18th July 2026
             </p>
           </motion.div>
         </div>
@@ -460,6 +460,8 @@ export default function RegisterPage() {
           )}
         </div>
       </section>
+
+     
     </>
   );
 }
