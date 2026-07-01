@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   ArrowRight,
   CheckCircle,
@@ -56,6 +57,7 @@ export default function RegisterPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [selectedType, setSelectedType] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const {
     register,
     handleSubmit,
@@ -66,10 +68,18 @@ export default function RegisterPage() {
   const onSubmit = async (data: RegistrationForm) => {
     setSubmitError("");
     try {
+      // Execute invisible reCAPTCHA and get the token
+      const recaptchaToken = await recaptchaRef.current?.executeAsync();
+      recaptchaRef.current?.reset();
+
+      if (!recaptchaToken) {
+        throw new Error("reCAPTCHA verification failed. Please try again.");
+      }
+
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
       const json = await res.json();
       if (!res.ok || !json.success) {
@@ -407,6 +417,13 @@ export default function RegisterPage() {
                       {...register("message")}
                     />
                   </div>
+
+                  {/* Invisible reCAPTCHA — no UI badge shown to user */}
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    size="invisible"
+                  />
 
                   <button
                     type="submit"

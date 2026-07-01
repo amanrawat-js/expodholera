@@ -92,7 +92,7 @@ export default function EventsPage() {
                 lineHeight: 1.7,
               }}
             >
-              Two phases, twelve cities — bringing the Dholera opportunity to every corner of India.
+              Two phases, twelve cities - bringing the Dholera opportunity to every corner of India.
             </p>
           </motion.div>
         </div>
