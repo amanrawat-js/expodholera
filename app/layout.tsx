@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Poppins /*, Raleway */ } from "next/font/googl
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ComingSoon from "./components/ComingSoon";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,9 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${poppins.variable} antialiased`}>
       <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-        <Header />
+        {/* <Header />
         <main style={{ flex: 1 }}>{children}</main>
-        <Footer />
+        <Footer /> */}
+        <ComingSoon />
       </body>
     </html>
   );
